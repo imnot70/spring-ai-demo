@@ -1,0 +1,41 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 18081
+
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: DEBUG
+
+# Ollama配置
+spring:
+  main:
+    web-application-type: SERVLET
+    allow-circular-references: true
+  ai:
+    ollama:
+#      base-url: https://lc-test.lts.sg/
+      base-url: 'http://localhost:11434'
+      pull-model-strategy: never
+      chat:
+#        model: qwen2.5:7b
+        model: deepseek-r1:7b
+#        model: llama3.2:latest
+        options:
+          temperature: 0.7
+#    map:
+#      client:
+#        type: ASYNC
+#        enabled: true
+#        toolcallback:
+#          enabled: true # 默认情况下，工具回调功能处于禁用状态，需要开启
+#        name: demo-mcp-client  # MCP客户端的配置
+#        sse:
+#          connections:
+#            server1:
+#              url: http://localhost:18080
+
