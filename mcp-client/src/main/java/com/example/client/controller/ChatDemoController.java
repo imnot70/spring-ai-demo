@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -40,6 +41,9 @@ public class ChatDemoController {
     private OllamaChatModel chatModel;
     private final ChatClient chatClient;
     private final ObjectMapper objectMapper;
+
+    @Autowired
+    private ChatMemory chatMemory;
 
     public ChatDemoController(ChatClient.Builder chatClientBuilder) {
         this.chatClient = chatClientBuilder.build();

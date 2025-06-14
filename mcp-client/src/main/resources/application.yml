@@ -27,6 +27,13 @@ spring:
 #        model: llama3.2:latest
         options:
           temperature: 0.7
+      init:
+        embedding:
+          additional-models:
+            - mxbai-embed-large
+      embedding:
+        options:
+          model: mxbai-embed-large
 #    map:
 #      client:
 #        type: ASYNC
